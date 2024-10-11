@@ -61,7 +61,7 @@ function WeatherDetails({ weatherData }) {
             <img src={icon_url} className="weather-app-icon" alt="" />
           </div>
           <div className="weather-app-temperature" id="temperature">
-            {Math.round(temperature)}&deg;C
+            {Math.round(temperature)}
           </div>
           <div className="weather-app-unit">&deg;C</div>
         </div>
