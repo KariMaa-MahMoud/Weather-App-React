@@ -109,14 +109,12 @@ main {
 
 .weather-app-city {
     display: block;
-    margin: 0;
+    margin: 0, 0, 20px, 200px;
     font-size: 30px;
     font-weight: bold;
     line-height: 48px;
     color: #800000;
-    margin-left: 190px;
-    margin-bottom: 20px;
-    margin-top: 0;
+
 }
 
 .weather-app-country {

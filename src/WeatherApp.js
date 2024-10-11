@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import axios from "axios";
 import SearchForm from "./SearchForm";
 import WeatherDetails from "./WeatherDetails";
 import Forecast from "./Forecast";
+import axios from "axios";
 
-const apiKey = "b2a5adcct04b33178913oc335f405433"; // Replace with your API key
+const apiKey = "b2a5adcct04b33178913oc335f405433"; 
 
 function WeatherApp() {
   const [city, setCity] = useState("Cairo, Egypt"); 
@@ -19,10 +19,21 @@ function WeatherApp() {
   useEffect(() => {
     const fetchWeatherData = async () => {
       try {
-        const response = await axios.get(
-          `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
-        );
-        setWeatherData(response.data);
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const latitude = position.coords.latitude;
+              const longitude = position.coords.longitude;
+              const response = axios.get(
+                `https://api.shecodes.io/weather/v1/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`
+              );
+              setWeatherData(response.data);
+            },
+            (error) => setError(error.message)
+          );
+        } else {
+          setError("Geolocation is not supported by this browser.");
+        }
       } catch (err) {
         setError(err.message);
         console.error("Error fetching weather data:", err);
@@ -30,7 +41,7 @@ function WeatherApp() {
     };
 
     fetchWeatherData();
-  }, [city]); // Re-fetch on city change
+  }, [city]);
 
   return (
     <div className="weather-app">
