@@ -41,27 +41,30 @@ function Forecast({ city }) {
   }, [city]);
 
   return (
-    <div className="weather-forecast">
-      {forecastData &&
-        forecastData.slice(0, 5).map((day) => (
-          <div className="weather-forecast-day" key={day.time}>
-            <div className="weather-forecast-date">{formatDay(day.time)}</div>
-            <img
-              src={day.condition.icon_url}
-              className="weather-forecast-icon"
-              alt=""
-            />
-            <div className="weather-forecast-temperatures">
-              <div className="weather-forecast-temperature">
-                <strong>{Math.round(day.temperature.maximum)}&deg;</strong>
-              </div>
-              <div className="weather-forecast-temperature">
-                {Math.round(day.temperature.minimum)}&deg;
+    <>
+      <div className="forcast-title">5 Days Forcast</div>
+      <div className="weather-forecast">
+        {forecastData &&
+          forecastData.slice(0, 5).map((day) => (
+            <div className="weather-forecast-day" key={day.time}>
+              <div className="weather-forecast-date">{formatDay(day.time)}</div>
+              <img
+                src={day.condition.icon_url}
+                className="weather-forecast-icon"
+                alt=""
+              />
+              <div className="weather-forecast-temperatures">
+                <div className="weather-forecast-temperature">
+                  <strong>{Math.round(day.temperature.maximum)}&deg;</strong>
+                </div>
+                <div className="weather-forecast-temperature">
+                  {Math.round(day.temperature.minimum)}&deg;
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-    </div>
+          ))}
+      </div>
+    </>
   );
 }
 
