@@ -27,11 +27,12 @@ function WeatherDetails({ weatherData }) {
     country,
     temperature,
     description,
-    humidity,
-    windSpeed,
+    wind,
     time,
     condition: { icon_url },
   } = weatherData;
+
+  const { humidity, current } = temperature;
 
   const date = new Date(time * 1000);
 
@@ -53,7 +54,7 @@ function WeatherDetails({ weatherData }) {
             <br />
             Humidity: <strong id="humidity">{humidity}%</strong>
             <br />
-            Wind: <strong id="wind-speed">{windSpeed}km/h</strong>
+            Wind: <strong id="wind-speed">{wind.speed}km/h</strong>
           </p>
         </div>
         <div className="weather-app-temperature-container">
@@ -61,7 +62,7 @@ function WeatherDetails({ weatherData }) {
             <img src={icon_url} className="weather-app-icon" alt="" />
           </div>
           <div className="weather-app-temperature" id="temperature">
-            {Math.round(temperature)}
+            {Math.round(current)}
           </div>
           <div className="weather-app-unit">&deg;C</div>
         </div>
