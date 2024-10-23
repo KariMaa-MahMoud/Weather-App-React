@@ -6,9 +6,11 @@ body {
     background-repeat: no-repeat;
 }
 
-a {
+a,
+.coder-name {
     color: #800000;
     transition: all 200ms ease;
+    text-decoration: none;
 }
 
 a:hover {
@@ -24,17 +26,6 @@ a:hover {
     padding: 30px;
 }
 
-.current-location-icon {
-    font-size: 55px;
-    color: #4d467f;
-    cursor: pointer;
-    transition: all 200ms ease;
-    margin-top: 5px;
-}
-
-.current-location-icon:hover {
-    color: #928bca;
-}
 
 header {
     border-bottom: 1px;
@@ -51,9 +42,6 @@ header {
     width: 78%;
     font-size: 16px;
     padding: 15px 20px;
-    font-family: "Fasthand", cursive;
-    font-family: "Grape Nuts", cursive;
-    font-family: "Nova Square", sans-serif;
 }
 
 .search-form-button {
@@ -65,9 +53,7 @@ header {
     color: white;
     background: #4d467f;
     transition: all 200ms ease;
-    font-family: "Fasthand", cursive;
-    font-family: "Grape Nuts", cursive;
-    font-family: "Nova Square", sans-serif;
+
 }
 
 .search-form-button:hover {

@@ -48,7 +48,7 @@ function WeatherApp() {
           <p className="loading-message">Loading weather data...</p>
         )}
         <div className="footer">
-          This project was coded by <strong>Karima Mahmoud</strong> and is
+          This project was coded by <strong className="coder-name">Karima Mahmoud</strong> and is
           open-sourced on{" "}
           <a href="https://github.com/KariMaa-MahMoud/weather-app-react">
             GitHub
