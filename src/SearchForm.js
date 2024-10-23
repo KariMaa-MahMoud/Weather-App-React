@@ -16,6 +16,7 @@ function SearchForm({ onSubmit }) {
         id="search-form-input"
         className="search-form-input"
         name="searchInput"
+        autoFocus="on"
       />
       <input type="submit" value="Search" className="search-form-button" />
     </form>
